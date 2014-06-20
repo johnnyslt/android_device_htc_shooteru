@@ -8,6 +8,7 @@ on init
     mkdir /storage/usbdisk 0700 root root
 
     export EXTERNAL_STORAGE /storage/sdcard0
+    export EXTERNAL_STORAGE_USB /storage/usbdisk
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
