@@ -202,7 +202,11 @@ on boot
 
 #Vibrator
     chown system system sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
-    chmod 666 sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
+    chmod 0664 sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
+
+# Color temp
+    chown system system /sys/module/mdp/parameters/mdp_gamma_cooler_colors
+    chmod 0664 /sys/module/mdp/parameters/mdp_gamma_cooler_colors
 
 # Chown polling nodes as needed from UI running on system server
     chown system system /sys/devices/platform/msm_sdcc.1/polling
@@ -218,7 +222,7 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 \
     -O/data/misc/wifi/sockets \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
     class main
-    socket wpa_wlan0 dgram 660 wifi wifi
+    socket wpa_wlan0 dgram 0660 wifi wifi
     disabled
     oneshot
 
